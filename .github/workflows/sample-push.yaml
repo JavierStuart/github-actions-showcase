@@ -1,21 +1,19 @@
 name: sample-push
 
 on:
-  pull_request:
-    branches:
-      - master
-
-  workflow_dispatch:
-    inputs:
-      hello:
-        description: '...'
-        default: 'hi'
-        required: true
+  push:
 
 jobs:
   job-1:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
       - name: 'Job 1'
-        run: echo "${{ github.event.inputs.hello }}, World"
+        run: echo "Hello, World"
+
+  job-2:
+    runs-on: macos-latest
+
+    steps:
+      - name: 'Job 2'
+        run: echo "Hello, World, 2"
