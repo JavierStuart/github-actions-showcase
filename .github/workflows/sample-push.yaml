@@ -7,13 +7,19 @@ jobs:
   job-1:
     runs-on: macos-latest
 
+    outputs:
+      output1: ${{ steps.step1.outputs.outputVariable1 }}
+
     steps:
       - name: 'Job 1'
-        run: echo "Hello, World"
+        id: step1
+        run: echo "::set-output name=outputVariable1::hello"
 
   job-2:
     runs-on: macos-latest
 
+    needs: job-1
+
     steps:
       - name: 'Job 2'
-        run: echo "Hello, World, 2"
+        run: echo "Hello, ${{ needs.job-1.outputs.outputVariable1 }}"
