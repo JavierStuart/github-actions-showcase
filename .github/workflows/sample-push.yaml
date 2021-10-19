@@ -2,6 +2,8 @@ name: sample-push
 
 on:
   push:
+    branches:
+      - development
 
 env:
   HELLO: 'Hello'
@@ -12,5 +14,4 @@ jobs:
 
     steps:
       - name: 'Job 1'
-        if: ${{ env.HELLO == 'hi' }}
         run: echo "${{ env.HELLO }}, World"
