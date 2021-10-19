@@ -22,4 +22,4 @@ jobs:
 
     steps:
       - name: 'Job 2'
-        run: echo "Hello, ${{ needs.job-1.outputs.outputVariable1 }}"
+        run: echo "Hello, ${{ needs.job-1.outputs.output1 }}"
