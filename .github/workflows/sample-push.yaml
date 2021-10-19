@@ -3,7 +3,7 @@ name: sample-push
 on:
   push:
     branches:
-      - development
+      - master
 
 env:
   HELLO: 'Hello'
