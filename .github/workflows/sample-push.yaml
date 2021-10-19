@@ -1,0 +1,15 @@
+name: sample-push
+
+on:
+  push:
+
+env:
+  HELLO: 'Hello'
+
+jobs:
+  job-1:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 'Job 1'
+        run: echo "${{ env.HELLO }}", World
