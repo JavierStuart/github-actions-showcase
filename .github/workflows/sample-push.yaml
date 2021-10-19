@@ -5,8 +5,12 @@ on:
     branches:
       - master
 
-env:
-  HELLO: 'Hello'
+  workflow_dispatch:
+    inputs:
+      hello:
+        description: '...'
+        default: 'hi'
+        required: true
 
 jobs:
   job-1:
@@ -14,4 +18,4 @@ jobs:
 
     steps:
       - name: 'Job 1'
-        run: echo "${{ env.HELLO }}, World"
+        run: echo "${{ github.event.inputs.hello }}, World"
